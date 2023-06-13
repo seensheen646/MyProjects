@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body{
+  background-image: url("/static/img/carousel-1.jpg");
+  font-family: 'PT Sans', sans-serif;
+}
+h2{
+  padding-top: 1.5rem;
+}
+a{
+  color: #f8f9fa;
+  padding-left: 6px;
+}
+a:hover{
+  color: #FBAF32;
+  text-decoration: none;
+
+}
+.card{
+ padding-left: 20%;
+  top: 10%;
+  justify-content: center;
+
+}
+.form-control{
+  background-color: #f8f9fa;
+  padding: 20px;
+  padding: 25px 15px;
+  margin-bottom: 1.3rem;
+  width: 30%;
+ 
+}
+
+.form-control:focus {
+
+    color: #000000;
+    background-color: #ffffff;
+    border: 3px solid #FBAF32;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+.btn{
+  padding: 0.6rem 1.2rem;
+  background: #FBAF32;
+  border: 2px solid #FBAF32;
+  margin-left: 2%;
+}
+.btn-primary:hover {
+
+    
+    background-color: white;
+    border-color: white;
+  transition: .2s;
+
+  color: #FBAF32;
+
+}
+
+  </style>
+</head>
+<body>
+  {% if status %}
+  <script>
+    alert('{{status}}');
+    window.location.href = "/login"
+  </script>
+  {% endif %}
+
+  {% if error %}
+  <script>
+    alert('{{error}}');
+  </script>
+   {% endif %}
+
+  <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-5">
+     <div class="card">
+       <h2 class="card-title text-center">Sign Up Now</h2>
+        <div class="card-body py-md-4">
+         <form _lpchecked="1" method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+               <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+          <div class="form-group">
+               <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                              </div>
+                              
+                            
+     <div class="form-group">
+       <input type="password" class="form-control" id="password" name="pass" placeholder="Password">
+     </div>
+     <div class="form-group">
+        <input type="text" class="form-control" id="number" name="number" placeholder="contact Number">
+     </div>
+     <div class="d-flex flex-row align-items-center justify-content-between">
+        <a href="{%url 'login'%}">Already have an account?</a>
+                                  <button class="btn btn-primary">Sign Up</button>
+            </div>
+         </form>
+       </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+</body>
+</html>
